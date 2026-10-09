@@ -1,6 +1,8 @@
 ---
 import Icon from "./ui/Icon.astro";
 import { gymConfig } from "../data/gym";
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <section class="hero" id="inicio">
@@ -44,7 +46,7 @@ import { gymConfig } from "../data/gym";
   <div class="hero-visual">
     <div class="hero-image-wrapper">
       <img
-        src={`${import.meta.env.BASE_URL}images/hero.jpg`}
+        src={`${baseUrl}/images/hero.jpg`}
         alt={`Atleta entrenando intensamente en ${gymConfig.name}`}
         class="hero-img"
         width="900"
