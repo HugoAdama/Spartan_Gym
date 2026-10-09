@@ -9,7 +9,7 @@ Documento técnico que detalla el stack tecnológico seleccionado, las decisione
 
 ## 1. Stack Tecnológico y Justificación
 
-### 1.1 Astro 5 (Framework Principal)
+### 1.1 Astro 7 (Framework Principal)
 * **Rol**: Generador de sitios estáticos (SSG) y arquitectura de islas.
 * **Justificación**: A diferencia de soluciones basadas en Single Page Applications (SPA) como React puro o Next.js con renderizado del lado del cliente pesado, Astro compila la interfaz a HTML y CSS estático puro por defecto. Esto elimina el costo de hidratación de JavaScript y garantiza tiempos de carga casi instantáneos.
 * **Beneficio**: Tiempos de respuesta de menos de 1 segundo en conexiones móviles y una calificación perfecta en auditorías de Lighthouse / Core Web Vitals.
@@ -42,7 +42,7 @@ Documento técnico que detalla el stack tecnológico seleccionado, las decisione
 
 ### 1.6 Despliegue Automatizado con GitHub Actions & GitHub Pages
 * **Rol**: Pipeline de integración y despliegue continuo (CI/CD).
-* **Justificación**: Mediante el workflow oficial `.github/workflows/deploy.yml` y la acción `withastro/action@v3`, cada push a la rama `main` compila automáticamente la versión de producción estática en entornos Linux aislados y la publica en GitHub Pages sin intervención manual.
+* **Justificación**: Mediante el workflow `.github/workflows/deploy.yml` configurado con Node 22 y las acciones oficiales de GitHub Pages (`upload-pages-artifact` y `deploy-pages`), cada push a la rama `main` compila automáticamente la versión de producción estática en entornos Linux aislados y la publica en GitHub Pages sin intervención manual.
 * **Beneficio**: Entrega continua confiable, costo de hosting cero y versionado atómico de cada versión desplegada.
 
 ---

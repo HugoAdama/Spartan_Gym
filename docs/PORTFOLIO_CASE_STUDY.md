@@ -2,7 +2,7 @@
 
 > **Categoría**: Diseño Web • Desarrollo Frontend • Arquitectura de Sistemas en Astro  
 > **Cliente / Negocio**: SPARTAN GYM (Centro de Entrenamiento & Fitness)  
-> **Tecnologías**: Astro 5, TypeScript, Vanilla CSS (Design Tokens), SVG Vector System  
+> **Tecnologías**: Astro 7, TypeScript, Vanilla CSS (Design Tokens), SVG Vector System  
 > **Enfoque**: Conversión de prospectos (Leads), Rendimiento Web Extremo (Core Web Vitals) y Mantenibilidad.  
 > **Demo en Vivo**: [https://hugoadama.github.io/Spartan_Gym/](https://hugoadama.github.io/Spartan_Gym/)  
 > **Repositorio**: [https://github.com/HugoAdama/Spartan_Gym](https://github.com/HugoAdama/Spartan_Gym)
@@ -23,7 +23,7 @@ Muchos gimnasios y centros deportivos enfrentan sitios web lentos, sobrecargados
 
 ## 2. La Solución (The Solution)
 
-Se diseñó e implementó una **Landing Page de Alto Rendimiento** construida con **Astro 5**, utilizando un sistema de diseño modular en Vanilla CSS y desacoplamiento de datos en TypeScript.
+Se diseñó e implementó una **Landing Page de Alto Rendimiento** construida con **Astro 7**, utilizando un sistema de diseño modular en Vanilla CSS y desacoplamiento de datos en TypeScript.
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -98,4 +98,4 @@ El proyecto aplica principios de **Clean Architecture** adaptados a Astro:
 
 ## 6. Pitch Breve para Presentación en Portafolio
 
-> *"Landing page de alto impacto para **SPARTAN GYM**, desarrollada con Astro 5 y un sistema de diseño desacoplado. Diseñada para maximizar la captación de prospectos mediante un embudo directo de prueba gratuita conectada a WhatsApp, eliminando toda fricción y logrando un tiempo de carga instantáneo con 100% de cumplimiento en Core Web Vitals."*
+> *"Landing page de alto impacto para **SPARTAN GYM**, desarrollada con Astro 7 y un sistema de diseño desacoplado. Diseñada para maximizar la captación de prospectos mediante un embudo directo de prueba gratuita conectada a WhatsApp, eliminando toda fricción y logrando un tiempo de carga instantáneo con 100% de cumplimiento en Core Web Vitals."*
