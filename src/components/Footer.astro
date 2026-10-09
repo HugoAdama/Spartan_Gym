@@ -113,7 +113,10 @@ import { gymConfig } from "../data/gym";
   <!-- Barra Inferior de Copyright y Legales -->
   <div class="footer-bottom">
     <div class="footer-bottom-inner">
-      <p>© {new Date().getFullYear()} {gymConfig.name}. Todos los derechos reservados.</p>
+      <div class="footer-credits">
+        <p>© {new Date().getFullYear()} {gymConfig.name}. Todos los derechos reservados.</p>
+        <span class="designer-credit">Diseñado por <a href="https://github.com/HugoAdama" target="_blank" rel="noopener noreferrer" class="author-link">Hugo Adama</a></span>
+      </div>
       <div class="legal-links">
         <a href="#">Términos y Condiciones</a>
         <span class="legal-dot">•</span>
@@ -513,6 +516,35 @@ import { gymConfig } from "../data/gym";
     gap: 16px;
     font-size: 14.5px;
     color: #888888;
+  }
+
+  .footer-credits {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .designer-credit {
+    color: #9E9E9E;
+  }
+
+  .designer-credit::before {
+    content: '•';
+    margin-right: 12px;
+    opacity: 0.4;
+  }
+
+  .author-link {
+    color: #FFFFFF !important;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition);
+  }
+
+  .author-link:hover {
+    color: var(--red) !important;
   }
 
   .legal-links {
