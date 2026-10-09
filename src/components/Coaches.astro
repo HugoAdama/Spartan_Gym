@@ -15,7 +15,7 @@ import { coachesData } from "../data/coaches";
       <article class="coach-card">
         <div class="coach-image-wrap">
           <img
-            src={coach.photo}
+            src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${coach.photo}`}
             alt={`Retrato del entrenador ${coach.name}`}
             class="coach-img"
             loading="eager"

@@ -2,6 +2,9 @@
 
 Documento técnico que detalla el stack tecnológico seleccionado, las decisiones de arquitectura de software, los patrones de diseño aplicados y las lecciones aprendidas durante la construcción de la landing page de **SPARTAN GYM**.
 
+* **Demo en Vivo**: [https://hugoadama.github.io/Spartan_Gym/](https://hugoadama.github.io/Spartan_Gym/)
+* **Repositorio**: [https://github.com/HugoAdama/Spartan_Gym](https://github.com/HugoAdama/Spartan_Gym)
+
 ---
 
 ## 1. Stack Tecnológico y Justificación
@@ -36,6 +39,11 @@ Documento técnico que detalla el stack tecnológico seleccionado, las decisione
 * **Rol**: Indicadores visuales, simbología y acciones.
 * **Justificación**: Cumplimiento de la regla interna de **cero emojis** para mantener un estándar corporativo y deportivo de alto nivel.
 * **Beneficio**: Nitidez infinita en cualquier resolución de pantalla (pantallas Retina/4K), control total de color mediante `currentColor` y cero llamadas de red para descargar fuentes de iconos pesadas.
+
+### 1.6 Despliegue Automatizado con GitHub Actions & GitHub Pages
+* **Rol**: Pipeline de integración y despliegue continuo (CI/CD).
+* **Justificación**: Mediante el workflow oficial `.github/workflows/deploy.yml` y la acción `withastro/action@v3`, cada push a la rama `main` compila automáticamente la versión de producción estática en entornos Linux aislados y la publica en GitHub Pages sin intervención manual.
+* **Beneficio**: Entrega continua confiable, costo de hosting cero y versionado atómico de cada versión desplegada.
 
 ---
 

@@ -2,6 +2,9 @@
 
 > **Sitio web oficial y landing page de conversión para SPARTAN GYM.**  
 > Desarrollado con **Astro 5**, **TypeScript** y un **Sistema de Diseño en Vanilla CSS** con separación estricta de responsabilidades.
+> 
+> * **Demo en Vivo**: [https://hugoadama.github.io/Spartan_Gym/](https://hugoadama.github.io/Spartan_Gym/)
+> * **Repositorio**: [https://github.com/HugoAdama/Spartan_Gym](https://github.com/HugoAdama/Spartan_Gym)
 
 ---
 

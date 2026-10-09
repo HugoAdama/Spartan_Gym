@@ -3,7 +3,9 @@
 > **Categoría**: Diseño Web • Desarrollo Frontend • Arquitectura de Sistemas en Astro  
 > **Cliente / Negocio**: SPARTAN GYM (Centro de Entrenamiento & Fitness)  
 > **Tecnologías**: Astro 5, TypeScript, Vanilla CSS (Design Tokens), SVG Vector System  
-> **Enfoque**: Conversión de prospectos (Leads), Rendimiento Web Extremo (Core Web Vitals) y Mantenibilidad.
+> **Enfoque**: Conversión de prospectos (Leads), Rendimiento Web Extremo (Core Web Vitals) y Mantenibilidad.  
+> **Demo en Vivo**: [https://hugoadama.github.io/Spartan_Gym/](https://hugoadama.github.io/Spartan_Gym/)  
+> **Repositorio**: [https://github.com/HugoAdama/Spartan_Gym](https://github.com/HugoAdama/Spartan_Gym)
 
 ---
 

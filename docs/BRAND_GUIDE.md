@@ -2,6 +2,9 @@
 
 Guía técnica y visual para la presentación de **SPARTAN GYM** en portafolios de diseño web, frontend y producto digital.
 
+* **Demo en Vivo**: [https://hugoadama.github.io/Spartan_Gym/](https://hugoadama.github.io/Spartan_Gym/)
+* **Repositorio**: [https://github.com/HugoAdama/Spartan_Gym](https://github.com/HugoAdama/Spartan_Gym)
+
 ---
 
 ## 1. Concepto y Personalidad de Marca
