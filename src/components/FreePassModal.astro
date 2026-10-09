@@ -1,0 +1,369 @@
+---
+import Icon from "./ui/Icon.astro";
+import { gymConfig } from "../data/gym";
+import { classesData } from "../data/classes";
+---
+
+<dialog id="freePassModal" class="spartan-dialog" aria-labelledby="dialogTitle">
+  <div class="dialog-content">
+    <button type="button" class="close-modal-btn" id="closeModalBtn" aria-label="Cerrar modal">
+      <Icon name="close" size={18} />
+    </button>
+
+    <div class="modal-header">
+      <span class="modal-badge">PASE DE 1 DÍA GRATIS</span>
+      <h3 id="dialogTitle">Reclama tu entrenamiento gratis</h3>
+      <p class="modal-desc">
+        Completa tus datos y te esperamos en <strong>{gymConfig.name}</strong>. Sin costo, sin tarjeta de crédito, sin compromiso.
+      </p>
+    </div>
+
+    <form id="freePassForm" class="pass-form">
+      <div class="form-group">
+        <label for="userName">Tu Nombre Completo *</label>
+        <input type="text" id="userName" name="name" required placeholder="Ej. Alex Valdivia" autocomplete="name" />
+      </div>
+
+      <div class="form-group">
+        <label for="userPhone">Número de WhatsApp *</label>
+        <input type="tel" id="userPhone" name="phone" required placeholder="Ej. 987 654 321" autocomplete="tel" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="classPreference">Clase o Zona de Interés</label>
+          <select id="classPreference" name="preference">
+            {classesData.map((item) => (
+              <option value={item.title}>{item.title}</option>
+            ))}
+            <option value="Spinning & Cardio">Spinning & Cardio</option>
+            <option value="Quiero asesoría general de un Coach">Quiero asesoría general de un Coach</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="preferredTime">Turno Preferido</label>
+          <select id="preferredTime" name="timeSlot">
+            <option value="Mañana (06:00 - 11:00)">Mañana (06:00 - 11:00)</option>
+            <option value="Tarde (17:00 - 19:30)">Tarde (17:00 - 19:30)</option>
+            <option value="Noche (19:30 - 22:30)">Noche (19:30 - 22:30)</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-submit" id="submitPassBtn">
+        <span>Confirmar mi Pase Gratis</span>
+        <Icon name="arrow-right" size={18} />
+      </button>
+
+      <p class="privacy-note">
+        <Icon name="lock" size={14} class="lock-icon" />
+        <span>Tus datos son confidenciales y solo se utilizarán para validar tu acceso en recepción.</span>
+      </p>
+    </form>
+
+    <!-- Success state -->
+    <div id="formSuccessState" class="form-success" style="display: none;">
+      <div class="success-icon">
+        <Icon name="check" size={28} />
+      </div>
+      <h4>¡Pase reservado con éxito!</h4>
+      <p id="successMessageText">
+        Te hemos agendado tu clase gratis en <strong>{gymConfig.name}</strong>.
+      </p>
+      <div class="success-actions">
+        <a id="whatsappConfirmLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-confirm">
+          Confirmar de inmediato por WhatsApp
+        </a>
+        <button type="button" class="btn btn-line btn-close-success" id="closeSuccessBtn">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .spartan-dialog {
+    margin: auto;
+    border: none;
+    padding: 0;
+    background: transparent;
+    max-width: 520px;
+    width: calc(100% - 32px);
+    border-radius: 4px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  .spartan-dialog::backdrop {
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .dialog-content {
+    background: var(--white);
+    padding: clamp(28px, 5vw, 40px);
+    position: relative;
+    border-top: 5px solid var(--red);
+  }
+
+  .close-modal-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--gray);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all var(--transition);
+  }
+
+  .close-modal-btn:hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .modal-badge {
+    background: rgba(214, 47, 15, 0.1);
+    color: var(--red);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .modal-header h3 {
+    font-size: clamp(26px, 3.5vw, 34px);
+    color: var(--ink);
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  .modal-desc {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.45;
+    margin-bottom: 22px;
+  }
+
+  .pass-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group label {
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 12px 14px;
+    border: 1.5px solid #D5D1C9;
+    background: #FDFDFD;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink);
+    border-radius: 4px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(214, 47, 15, 0.18);
+  }
+
+  .btn-submit {
+    margin-top: 8px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  .privacy-note {
+    font-size: 12px;
+    color: var(--gray-light);
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  :global(.lock-icon) {
+    color: var(--gray-light);
+    flex-shrink: 0;
+  }
+
+  /* Success State */
+  .form-success {
+    text-align: center;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    background: #10B981;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-success h4 {
+    font-size: 28px;
+    color: var(--ink);
+  }
+
+  .form-success p {
+    color: var(--gray);
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 380px;
+  }
+
+  .success-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .btn-whatsapp-confirm {
+    background: #25D366;
+    color: #fff;
+    width: 100%;
+  }
+
+  .btn-whatsapp-confirm:hover {
+    background: #1EBE5D;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  }
+
+  .btn-close-success {
+    width: 100%;
+  }
+
+  @media (max-width: 500px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  import { gymConfig } from "../data/gym";
+
+  const modal = document.getElementById('freePassModal') as HTMLDialogElement | null;
+  const closeBtn = document.getElementById('closeModalBtn');
+  const passForm = document.getElementById('freePassForm') as HTMLFormElement | null;
+  const successState = document.getElementById('formSuccessState');
+  const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+  const whatsappConfirmLink = document.getElementById('whatsappConfirmLink') as HTMLAnchorElement | null;
+  const classPrefSelect = document.getElementById('classPreference') as HTMLSelectElement | null;
+
+  // Open modal buttons
+  document.querySelectorAll('[data-open-modal]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!modal) return;
+      
+      const defaultClass = btn.getAttribute('data-default-class');
+      
+      if (classPrefSelect && defaultClass) {
+        for (let i = 0; i < classPrefSelect.options.length; i++) {
+          if (classPrefSelect.options[i].text.includes(defaultClass)) {
+            classPrefSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      // Reset form states
+      if (passForm) passForm.style.display = 'flex';
+      if (successState) successState.style.display = 'none';
+
+      modal.showModal();
+    });
+  });
+
+  // Close modal logic
+  const closeModal = () => {
+    if (modal) modal.close();
+  };
+
+  closeBtn?.addEventListener('click', closeModal);
+  closeSuccessBtn?.addEventListener('click', closeModal);
+
+  // Close when clicking outside dialog window
+  modal?.addEventListener('click', (e) => {
+    const dialogDimensions = modal.getBoundingClientRect();
+    if (
+      e.clientX < dialogDimensions.left ||
+      e.clientX > dialogDimensions.right ||
+      e.clientY < dialogDimensions.top ||
+      e.clientY > dialogDimensions.bottom
+    ) {
+      modal.close();
+    }
+  });
+
+  // Handle submit
+  passForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(passForm);
+    const name = formData.get('name') as string;
+    const phone = formData.get('phone') as string;
+    const preference = formData.get('preference') as string;
+    const timeSlot = formData.get('timeSlot') as string;
+
+    const message = `¡Hola ${gymConfig.name}! Mi nombre es ${name}. Me registré en la web para mi Pase Gratis de 1 día.
+Interés: ${preference}
+Turno: ${timeSlot}
+WhatsApp: ${phone}
+¡Quedo a la espera de su confirmación!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const waUrl = `https://wa.me/${gymConfig.contact.whatsapp}?text=${encodedMessage}`;
+
+    if (whatsappConfirmLink) {
+      whatsappConfirmLink.href = waUrl;
+    }
+
+    passForm.style.display = 'none';
+    if (successState) successState.style.display = 'flex';
+  });
+</script>

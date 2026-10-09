@@ -1,0 +1,214 @@
+---
+import Icon from "./ui/Icon.astro";
+import { gymConfig } from "../data/gym";
+---
+
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label={`${gymConfig.name} Inicio`}>
+      <Icon name="helmet" size={36} class="logo-icon" />
+      <span class="logo-text">SPARTAN <span>GYM</span></span>
+    </a>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button class="mobile-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainNav">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav" id="mainNav">
+      <a href="#clases" class="nav-link">Clases</a>
+      <a href="#horarios" class="nav-link">Horarios</a>
+      <a href="#equipo" class="nav-link">Equipo</a>
+      <a href="#planes" class="nav-link">Planes</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
+      <button class="btn btn-header open-modal-btn" type="button" data-open-modal>
+        Pase gratis
+      </button>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.3s ease;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px var(--pad);
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  :global(.logo-icon) {
+    color: var(--red);
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: var(--display);
+    font-size: 32px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .logo-text span {
+    color: var(--red);
+  }
+
+  .nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-link {
+    position: relative;
+    padding: 6px 0;
+    color: var(--ink);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--red);
+    transition: width var(--transition);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .btn-header {
+    padding: 10px 22px;
+    min-height: 42px;
+    font-size: 14px;
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+  }
+
+  .mobile-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  }
+
+  @media (max-width: 860px) {
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: min(320px, 80vw);
+      height: 100vh;
+      background: var(--ink);
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px;
+      gap: 24px;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav.is-open {
+      right: 0;
+    }
+
+    .nav-link {
+      color: #fff;
+      font-size: 20px;
+      font-family: var(--display);
+      letter-spacing: 0.06em;
+    }
+
+    .nav-link:hover {
+      color: var(--red);
+    }
+
+    .btn-header {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .mobile-toggle.is-active .bar:nth-child(1) {
+      transform: translateY(9.5px) rotate(45deg);
+      background-color: var(--red);
+    }
+
+    .mobile-toggle.is-active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-toggle.is-active .bar:nth-child(3) {
+      transform: translateY(-9.5px) rotate(-45deg);
+      background-color: var(--red);
+    }
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('mainNav');
+
+  if (toggleBtn && navMenu) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      toggleBtn.classList.toggle('is-active');
+      navMenu.classList.toggle('is-open');
+    });
+
+    navMenu.querySelectorAll('.nav-link, .open-modal-btn').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggleBtn.classList.remove('is-active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('is-open');
+      });
+    });
+  }
+</script>

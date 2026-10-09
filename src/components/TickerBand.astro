@@ -1,0 +1,85 @@
+---
+const disciplines = [
+  "SALA DE PESAS",
+  "ENTRENAMIENTO FUNCIONAL",
+  "BOXEO & STRIKING",
+  "SPINNING PRO",
+  "POWERLIFTING",
+  "CALISTENIA",
+  "ZONA DE COMBATE",
+  "NUTRICIÓN DEPORTIVA",
+];
+---
+
+<div class="band-container" aria-hidden="true">
+  <div class="band-track">
+    {disciplines.map((item) => (
+      <span class="band-item">
+        <span class="spartan-dot">/</span>
+        {item}
+      </span>
+    ))}
+    {disciplines.map((item) => (
+      <span class="band-item">
+        <span class="spartan-dot">/</span>
+        {item}
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .band-container {
+    background: var(--red);
+    color: #fff;
+    overflow: hidden;
+    padding: 16px 0;
+    user-select: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .band-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 32s linear infinite;
+  }
+
+  .band-track:hover {
+    animation-play-state: paused;
+  }
+
+  .band-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+    font-family: var(--display);
+    font-size: clamp(20px, 2.4vw, 26px);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .spartan-dot {
+    opacity: 0.6;
+    font-size: 20px;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .band-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>

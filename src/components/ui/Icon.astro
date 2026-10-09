@@ -1,0 +1,170 @@
+---
+interface Props {
+  name:
+    | "helmet"
+    | "check"
+    | "star"
+    | "arrow-right"
+    | "lock"
+    | "close"
+    | "info"
+    | "whatsapp"
+    | "instagram"
+    | "facebook"
+    | "tiktok"
+    | "calendar"
+    | "map-pin"
+    | "clock"
+    | "phone"
+    | "mail"
+    | "shield-check"
+    | "external-link"
+    | "qrcode";
+  size?: number | string;
+  class?: string;
+  "aria-hidden"?: boolean | "true" | "false";
+}
+
+const {
+  name,
+  size = 20,
+  class: className = "",
+  "aria-hidden": ariaHidden = true,
+} = Astro.props;
+---
+
+{name === "helmet" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden={ariaHidden}>
+    <path d="M50 12C36 12 28 20 28 26C38 24 62 24 72 26C72 20 64 12 50 12Z" fill="currentColor"/>
+    <path d="M48 24V40H52V24H48Z" fill="currentColor"/>
+    <path d="M30 34C30 34 32 60 42 70V54H47V88C35 84 22 68 22 45C22 38 25 34 30 34Z" fill="currentColor"/>
+    <path d="M70 34C70 34 68 60 58 70V54H53V88C65 84 78 68 78 45C78 38 75 34 70 34Z" fill="currentColor"/>
+    <path d="M47 38H53V62H47V38Z" fill="currentColor"/>
+    <path d="M35 48L44 50V44L35 42V48Z" fill="var(--ink)"/>
+    <path d="M65 48L56 50V44L65 42V48Z" fill="var(--ink)"/>
+  </svg>
+)}
+
+{name === "check" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 20 20" fill="currentColor" aria-hidden={ariaHidden}>
+    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+  </svg>
+)}
+
+{name === "star" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden={ariaHidden}>
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+  </svg>
+)}
+
+{name === "arrow-right" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+  </svg>
+)}
+
+{name === "lock" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+  </svg>
+)}
+
+{name === "close" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+)}
+
+{name === "info" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="16" x2="12" y2="12"></line>
+    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+  </svg>
+)}
+
+{name === "calendar" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden={ariaHidden}>
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+    <line x1="16" y1="2" x2="16" y2="6"></line>
+    <line x1="8" y1="2" x2="8" y2="6"></line>
+    <line x1="3" y1="10" x2="21" y2="10"></line>
+  </svg>
+)}
+
+{name === "map-pin" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+    <circle cx="12" cy="10" r="3"></circle>
+  </svg>
+)}
+
+{name === "clock" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <circle cx="12" cy="12" r="10"></circle>
+    <polyline points="12 6 12 12 16 14"></polyline>
+  </svg>
+)}
+
+{name === "phone" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+  </svg>
+)}
+
+{name === "mail" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+  </svg>
+)}
+
+{name === "shield-check" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+    <polyline points="9 12 11 14 15 10"></polyline>
+  </svg>
+)}
+
+{name === "external-link" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+    <polyline points="15 3 21 3 21 9"></polyline>
+    <line x1="10" y1="14" x2="21" y2="3"></line>
+  </svg>
+)}
+
+{name === "qrcode" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden={ariaHidden}>
+    <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14-2h4v2h-4v-2zm-4 0h2v4h-2v-4zm2 4h4v4h-2v-2h-2v-2zm2 2h2v2h-2v-2zm-4 0h2v2h-2v-2zm0-4h2v2h-2v-2zm-6-9h2v2h-2V5zm0 12h2v2h-2v-2z"/>
+  </svg>
+)}
+
+{name === "whatsapp" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden={ariaHidden}>
+    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.974.542 1.761.735 2.796.735 3.183 0 5.768-2.587 5.768-5.769 0-3.181-2.587-5.768-5.768-5.768zm7.391 5.767c0 4.075-3.316 7.391-7.391 7.391-1.309 0-2.486-.339-3.559-.964l-4.472 1.173 1.194-4.364c-.732-1.127-1.127-2.443-1.127-3.236 0-4.075 3.316-7.391 7.391-7.391 4.075 0 7.391 3.316 7.391 7.391z"/>
+  </svg>
+)}
+
+{name === "instagram" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+)}
+
+{name === "facebook" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+  </svg>
+)}
+
+{name === "tiktok" && (
+  <svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden={ariaHidden}>
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+  </svg>
+)}

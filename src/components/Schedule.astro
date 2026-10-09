@@ -1,0 +1,269 @@
+---
+import Icon from "./ui/Icon.astro";
+import { scheduleData } from "../data/schedule";
+---
+
+<section id="horarios" class="section">
+  <div class="schedule-header">
+    <div>
+      <p class="eyebrow">Horarios de Clases</p>
+      <h2 class="title">Encuentra tu hora de batalla</h2>
+    </div>
+    
+    <div class="schedule-filters" role="tablist" aria-label="Filtro de horarios">
+      <button type="button" class="filter-btn active" data-filter="all">Todos</button>
+      <button type="button" class="filter-btn" data-filter="morning">Mañana</button>
+      <button type="button" class="filter-btn" data-filter="evening">Tarde</button>
+      <button type="button" class="filter-btn" data-filter="night">Noche</button>
+    </div>
+  </div>
+
+  <div class="schedule-table-wrap">
+    <div class="schedule-list">
+      {scheduleData.map((item) => (
+        <div class="schedule-row" data-shift={item.shift}>
+          <div class="row-time">
+            <b>{item.time}</b>
+            <span class="am-pm">{parseInt(item.time) < 12 ? 'AM' : 'PM'}</span>
+          </div>
+
+          <div class="row-details">
+            <h3 class="class-title">{item.name}</h3>
+            <div class="class-meta">
+              <span class="meta-days">
+                <Icon name="calendar" size={14} class="calendar-icon" />
+                {item.days}
+              </span>
+              <span class="meta-intensity">Intensidad: <strong>{item.intensity}</strong></span>
+            </div>
+          </div>
+
+          <div class="row-coach">
+            <span class="coach-avatar" aria-hidden="true">SP</span>
+            <div class="coach-info">
+              <small class="coach-label">Instructor</small>
+              <strong class="coach-name">{item.coach}</strong>
+            </div>
+          </div>
+
+          <div class="row-action">
+            <button class="btn btn-sm" type="button" data-open-modal data-default-class={item.name}>
+              Reservar
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="schedule-note">
+    <Icon name="info" size={20} class="note-icon" />
+    <p><em>¿Prefieres entrenar por libre?</em> La sala de pesas y máquinas está abierta en horario continuo de <strong>06:00 a 22:30</strong> de lunes a viernes.</p>
+  </div>
+</section>
+
+<style>
+  .schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .schedule-filters {
+    display: flex;
+    gap: 8px;
+    background: var(--paper);
+    padding: 6px;
+    border: 1px solid var(--border-light);
+  }
+
+  .filter-btn {
+    border: none;
+    background: transparent;
+    padding: 8px 18px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    color: var(--gray);
+    transition: all var(--transition);
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .schedule-table-wrap {
+    width: 100%;
+  }
+
+  .schedule-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid var(--ink);
+  }
+
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 120px 1.8fr 1.2fr auto;
+    gap: 24px;
+    padding: 22px 18px;
+    border-bottom: 1px solid #E2DED8;
+    align-items: center;
+    border-radius: 4px;
+    transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  }
+
+  .schedule-row:hover {
+    background-color: var(--white);
+    transform: translateX(6px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  }
+
+  .row-time {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .row-time b {
+    font: 400 36px var(--display);
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .am-pm {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--gray);
+  }
+
+  .class-title {
+    font-size: 22px;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .class-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 13.5px;
+    color: var(--gray);
+    flex-wrap: wrap;
+  }
+
+  .meta-days {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+  }
+
+  .meta-intensity strong {
+    color: var(--ink);
+  }
+
+  .row-coach {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .coach-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--red);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .coach-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coach-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  .coach-name {
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+
+  .schedule-note {
+    margin-top: 28px;
+    padding: 16px 20px;
+    background: var(--paper);
+    border-left: 3px solid var(--red);
+    font-size: 15px;
+    color: var(--ink);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  :global(.note-icon) {
+    color: var(--red);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .schedule-row {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 18px 0;
+    }
+
+    .row-coach {
+      padding-top: 4px;
+    }
+
+    .row-action {
+      margin-top: 6px;
+    }
+
+    .row-action .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const rows = document.querySelectorAll('.schedule-row');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      rows.forEach((row) => {
+        const rowShift = row.getAttribute('data-shift');
+        if (filter === 'all' || rowShift === filter) {
+          (row as HTMLElement).style.display = 'grid';
+        } else {
+          (row as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

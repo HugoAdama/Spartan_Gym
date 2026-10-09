@@ -1,0 +1,190 @@
+---
+import Icon from "./ui/Icon.astro";
+import SectionHead from "./ui/SectionHead.astro";
+import { pricingPlansData } from "../data/pricing";
+---
+
+<section id="planes" class="section">
+  <SectionHead
+    eyebrow="Membresías"
+    title="Elige tu plan de entrenamiento"
+    description="Precios claros y sin sorpresas. Todos los planes incluyen acceso a instructores y sin costo de matrícula inicial."
+  />
+
+  <div class="grid pricing-grid">
+    {pricingPlansData.map((plan) => (
+      <article class={`plan-card ${plan.isPopular ? 'plan-top' : ''}`}>
+        {plan.isPopular && <div class="badge-featured">MÁS ELEGIDO</div>}
+        
+        <div class="plan-header">
+          <h3>{plan.name}</h3>
+          <p class="plan-tagline">{plan.tagline}</p>
+        </div>
+
+        <div class="price-wrap">
+          <span class="price">{plan.price}</span>
+          <span class="period">{plan.period}</span>
+        </div>
+
+        <ul class="plan-features">
+          {plan.features.map((feat) => (
+            <li>
+              <Icon name="check" size={18} class="feat-check" />
+              <span>{feat}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="plan-action">
+          <button
+            class={`btn plan-btn ${plan.isPopular ? '' : 'btn-line'}`}
+            type="button"
+            data-open-modal
+            data-default-plan={plan.name}
+          >
+            {plan.ctaText}
+          </button>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .pricing-grid {
+    align-items: stretch;
+  }
+
+  .plan-card {
+    border: 2px solid var(--ink);
+    padding: clamp(28px, 4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    background: var(--white);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .plan-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+  }
+
+  .plan-top {
+    background: #111111;
+    color: #fff;
+    border: 2px solid var(--red);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35), 0 0 24px rgba(214, 47, 15, 0.25);
+  }
+
+  .plan-top:hover {
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5), 0 0 32px rgba(214, 47, 15, 0.4);
+    transform: translateY(-8px);
+  }
+
+  .badge-featured {
+    position: absolute;
+    top: -14px;
+    left: 28px;
+    background: linear-gradient(135deg, #FF3D1F 0%, #D62F0F 100%);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 5px 16px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(214, 47, 15, 0.45);
+  }
+
+  .plan-card h3 {
+    font-size: 32px;
+  }
+
+  .plan-tagline {
+    font-size: 14px;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  .plan-top .plan-tagline {
+    color: #AFAFAF;
+  }
+
+  .price-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .plan-top .price-wrap {
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .price {
+    font: 400 56px var(--display);
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .plan-top .price {
+    color: var(--red);
+  }
+
+  .period {
+    font-size: 15px;
+    color: var(--gray);
+    font-weight: 600;
+  }
+
+  .plan-top .period {
+    color: #AFAFAF;
+  }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+  }
+
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .plan-top .plan-features li {
+    color: #E2E2E2;
+  }
+
+  :global(.feat-check) {
+    color: var(--red);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .plan-action {
+    margin-top: 10px;
+  }
+
+  .plan-btn {
+    width: 100%;
+  }
+
+  .plan-top .btn {
+    background: var(--red);
+    color: #fff;
+  }
+
+  .plan-top .btn:hover {
+    background: var(--red-hover);
+  }
+</style>

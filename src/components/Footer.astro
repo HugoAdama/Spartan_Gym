@@ -1,0 +1,545 @@
+---
+import Icon from "./ui/Icon.astro";
+import { gymConfig } from "../data/gym";
+---
+
+<footer class="footer">
+  <!-- Línea decorativa superior con luz espartana -->
+  <div class="footer-top-glow" aria-hidden="true"></div>
+
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <!-- Columna 1: Marca y Propuesta -->
+      <div class="footer-brand">
+        <a href="#" class="footer-logo" aria-label={`${gymConfig.name} Inicio`}>
+          <div class="logo-badge">
+            <Icon name="helmet" size={32} class="logo-icon" />
+          </div>
+          <span class="logo-title">SPARTAN <span>GYM</span></span>
+        </a>
+        <p class="brand-tagline">
+          {gymConfig.slogan}
+        </p>
+        <div class="brand-cert-badge">
+          <Icon name="shield-check" size={16} class="cert-icon" />
+          <span>Centro Oficial de Alto Rendimiento</span>
+        </div>
+      </div>
+
+      <!-- Columna 2: Ubicación -->
+      <div class="footer-col">
+        <div class="col-header">
+          <Icon name="map-pin" size={18} class="col-icon" />
+          <h4 class="col-title">Ubicación</h4>
+        </div>
+        <p class="col-text address-main">{gymConfig.address.street}</p>
+        <p class="col-text">{gymConfig.address.district}, {gymConfig.address.city} - {gymConfig.address.country}</p>
+        <p class="col-text ref-text">{gymConfig.address.reference}</p>
+        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="map-link">
+          <span>Ver en Google Maps</span>
+          <Icon name="external-link" size={13} />
+        </a>
+      </div>
+
+      <!-- Columna 3: Horarios de Atención -->
+      <div class="footer-col">
+        <div class="col-header">
+          <Icon name="clock" size={18} class="col-icon" />
+          <h4 class="col-title">Horarios de Atención</h4>
+        </div>
+        <div class="live-schedule-badge">
+          <span class="pulse-dot"></span>
+          <span>Abierto hoy hasta las 22:30</span>
+        </div>
+        <ul class="hours-list">
+          <li>
+            <span class="day-label">Lunes a Viernes</span>
+            <span class="time-label">{gymConfig.hours.weekdays}</span>
+          </li>
+          <li>
+            <span class="day-label">Sábados</span>
+            <span class="time-label">{gymConfig.hours.saturdays}</span>
+          </li>
+          <li>
+            <span class="day-label">Domingos</span>
+            <span class="time-label">{gymConfig.hours.sundays}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Canales Directos -->
+      <div class="footer-col">
+        <div class="col-header">
+          <Icon name="phone" size={18} class="col-icon" />
+          <h4 class="col-title">Contacto Directo</h4>
+        </div>
+        <div class="contact-links-wrap">
+          <a href={gymConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" class="contact-item-btn">
+            <div class="wa-icon-box">
+              <Icon name="whatsapp" size={20} class="wa-icon" />
+            </div>
+            <div class="contact-details">
+              <div class="contact-top-row">
+                <small>WhatsApp Oficial</small>
+                <span class="online-indicator"></span>
+              </div>
+              <strong>{gymConfig.contact.phone}</strong>
+            </div>
+          </a>
+          <a href={`mailto:${gymConfig.contact.email}`} class="contact-mail-link">
+            <Icon name="mail" size={15} class="mail-icon" />
+            <span>{gymConfig.contact.email}</span>
+          </a>
+        </div>
+
+        <div class="social-wrapper">
+          <span class="social-label">Comunidad Digital</span>
+          <div class="social-links">
+            <a href={gymConfig.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <Icon name="instagram" size={18} />
+            </a>
+            <a href={gymConfig.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <Icon name="facebook" size={18} />
+            </a>
+            <a href={gymConfig.social.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <Icon name="tiktok" size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra Inferior de Copyright y Legales -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>© {new Date().getFullYear()} {gymConfig.name}. Todos los derechos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Términos y Condiciones</a>
+        <span class="legal-dot">•</span>
+        <a href="#">Política de Privacidad</a>
+        <span class="legal-dot">•</span>
+        <a href="#">Libro de Reclamaciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #0B0B0B;
+    color: #D1D1D1;
+    position: relative;
+    font-size: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer-top-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--red) 30%, #FF5A36 50%, var(--red) 70%, transparent 100%);
+  }
+
+  .footer-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: clamp(56px, 7vw, 92px) var(--pad) clamp(40px, 5vw, 64px);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.15fr;
+    gap: clamp(32px, 4vw, 56px);
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-badge {
+    width: 44px;
+    height: 44px;
+    background: #181818;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  :global(.footer-logo .logo-icon) {
+    color: var(--red);
+  }
+
+  .logo-title {
+    font-family: var(--display);
+    font-size: 30px;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .logo-title span {
+    color: var(--red);
+  }
+
+  .brand-tagline {
+    font-size: 14px;
+    color: #929292;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+
+  .brand-cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #141414;
+    border: 1px solid rgba(214, 47, 15, 0.4);
+    padding: 7px 14px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #E2E2E2;
+    width: fit-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  :global(.cert-icon) {
+    color: var(--red);
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .col-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  :global(.col-icon) {
+    color: var(--red);
+  }
+
+  .col-title {
+    color: #fff;
+    font-size: 17px;
+    letter-spacing: 0.06em;
+    font-family: var(--display);
+    text-transform: uppercase;
+  }
+
+  .col-text {
+    line-height: 1.55;
+    color: #9A9A9A;
+  }
+
+  .address-main {
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+
+  .ref-text {
+    font-size: 12.5px;
+    color: #6E6E6E;
+  }
+
+  /* Map outline chip button */
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #FFFFFF !important;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    width: fit-content;
+    margin-top: 8px;
+    transition: all var(--transition);
+  }
+
+  :global(.map-link svg) {
+    color: var(--red);
+    transition: transform var(--transition), color var(--transition);
+  }
+
+  .map-link:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--red-glow);
+  }
+
+  .map-link:hover :global(svg) {
+    color: #FFFFFF;
+    transform: translate(2px, -2px);
+  }
+
+  /* Horarios */
+  .live-schedule-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255, 184, 0, 0.12);
+    color: var(--gold);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 99px;
+    width: fit-content;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 184, 0, 0.35);
+    box-shadow: 0 2px 10px rgba(255, 184, 0, 0.12);
+  }
+
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold);
+    animation: pulse-gold 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 184, 0, 0.7);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(0.9);
+      box-shadow: 0 0 0 6px rgba(255, 184, 0, 0);
+    }
+  }
+
+  .hours-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hours-list li {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 6px;
+  }
+
+  .day-label {
+    font-size: 12px;
+    color: #7E7E7E;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .time-label {
+    font-size: 14.5px;
+    color: #EAEAEA;
+    font-weight: 600;
+  }
+
+  /* Contacto y Redes */
+  .contact-links-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-item-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 10px 14px;
+    border-radius: 4px;
+    color: #fff;
+    transition: all var(--transition);
+  }
+
+  .contact-item-btn:hover {
+    background: #1B1B1B;
+    border-color: rgba(37, 211, 102, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  }
+
+  .wa-icon-box {
+    width: 32px;
+    height: 32px;
+    background: rgba(37, 211, 102, 0.12);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  :global(.wa-icon) {
+    color: #25D366;
+    flex-shrink: 0;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-top-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .contact-item-btn small {
+    font-size: 11px;
+    color: #8C8C8C;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .online-indicator {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #25D366;
+  }
+
+  .contact-item-btn strong {
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .contact-mail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #8E8E8E;
+    font-size: 13.5px;
+    padding: 4px 0;
+    transition: color var(--transition);
+  }
+
+  :global(.mail-icon) {
+    color: var(--red);
+  }
+
+  .contact-mail-link:hover {
+    color: #fff;
+  }
+
+  .social-wrapper {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .social-label {
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6E6E6E;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 4px;
+    background: #141414;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all var(--transition);
+  }
+
+  .social-links a:hover {
+    background: var(--red);
+    border-color: var(--red);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px var(--red-glow);
+  }
+
+  /* Subfooter */
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 24px var(--pad);
+    background: #070707;
+  }
+
+  .footer-bottom-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: #6C6C6C;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .legal-links a {
+    color: #7E7E7E;
+    transition: color var(--transition);
+  }
+
+  .legal-links a:hover {
+    color: #fff;
+  }
+
+  .legal-dot {
+    opacity: 0.4;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

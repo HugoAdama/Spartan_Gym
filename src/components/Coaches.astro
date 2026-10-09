@@ -1,0 +1,117 @@
+---
+import SectionHead from "./ui/SectionHead.astro";
+import { coachesData } from "../data/coaches";
+---
+
+<section id="equipo" class="section team">
+  <SectionHead
+    eyebrow="Equipo Spartan"
+    title="Quiénes te entrenan"
+    description="Aquí nadie entrena solo. Nuestros entrenadores no se quedan mirando el móvil: corrigen cada repetición, adaptan el peso a tu nivel y se aseguran de que avances semana a semana."
+  />
+
+  <div class="grid">
+    {coachesData.map((coach) => (
+      <article class="coach-card">
+        <div class="coach-image-wrap">
+          <img
+            src={coach.photo}
+            alt={`Retrato del entrenador ${coach.name}`}
+            class="coach-img"
+            loading="eager"
+            decoding="sync"
+            width="400"
+            height="533"
+          />
+          <div class="coach-badge">{coach.role}</div>
+        </div>
+
+        <div class="coach-body">
+          <h3>{coach.name}</h3>
+          <p class="coach-certs">{coach.certifications}</p>
+          <p class="coach-desc">{coach.bio}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .team {
+    background: var(--paper);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .coach-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .coach-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .coach-image-wrap {
+    position: relative;
+    height: 340px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+
+  .coach-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    transition: transform 0.6s ease;
+  }
+
+  .coach-card:hover .coach-img {
+    transform: scale(1.05);
+  }
+
+  .coach-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: var(--red);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+  }
+
+  .coach-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .coach-card h3 {
+    font-size: 26px;
+    color: var(--ink);
+  }
+
+  .coach-certs {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .coach-desc {
+    color: var(--gray);
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+</style>

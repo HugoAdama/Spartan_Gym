@@ -1,0 +1,629 @@
+---
+import Icon from "./ui/Icon.astro";
+import { gymConfig } from "../data/gym";
+---
+
+<section id="contacto" class="cta-section">
+  <!-- Marca de agua decorativa y luces de fondo -->
+  <div class="cta-backdrop-pattern" aria-hidden="true"></div>
+  <div class="cta-watermark" aria-hidden="true">
+    <Icon name="helmet" size={520} class="watermark-svg" />
+  </div>
+  <div class="cta-glow" aria-hidden="true"></div>
+
+  <div class="cta-inner">
+    <!-- Columna Izquierda: Mensaje Persuasivo -->
+    <div class="cta-content">
+      <div class="cta-badge">
+        <span class="badge-dot"></span>
+        <span>PASO 1: VEN A PROBAR</span>
+      </div>
+
+      <h2>Tu primera clase es 100% gratis</h2>
+
+      <p class="cta-desc">
+        Ven a entrenar hoy sin pagar nada ni registrar tarjetas. Siente la disciplina de {gymConfig.name}, prueba el equipamiento olímpico y recibe corrección técnica de nuestros coaches.
+      </p>
+
+      <div class="cta-actions">
+        <a class="btn btn-dark btn-cta btn-whatsapp" href={gymConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer">
+          <Icon name="whatsapp" size={20} class="wa-icon" />
+          <span>Escríbenos por WhatsApp</span>
+        </a>
+        <button class="btn btn-line-white btn-cta" type="button" data-open-modal>
+          Reservar pase online
+        </button>
+      </div>
+
+      <div class="cta-perks">
+        <div class="perk-chip">
+          <Icon name="check" size={15} class="chip-icon" />
+          <span>Sin tarjeta ni compromiso</span>
+        </div>
+        <div class="perk-chip">
+          <Icon name="check" size={15} class="chip-icon" />
+          <span>Lockers y vestuarios incluidos</span>
+        </div>
+        <div class="perk-chip">
+          <Icon name="check" size={15} class="chip-icon" />
+          <span>Rutina guiada por coach</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Tarjeta VIP Digital de Pase -->
+    <div class="cta-ticket-wrapper">
+      <div class="vip-ticket">
+        <!-- Marca de agua dentro del ticket -->
+        <div class="ticket-watermark" aria-hidden="true">
+          <Icon name="helmet" size={200} class="ticket-watermark-svg" />
+        </div>
+
+        <div class="ticket-header">
+          <div class="ticket-brand">
+            <div class="ticket-icon-box">
+              <Icon name="helmet" size={22} class="ticket-icon" />
+            </div>
+            <div>
+              <strong class="ticket-brand-name">SPARTAN PASS</strong>
+              <span class="ticket-sub">Pase Oficial de Cortesía</span>
+            </div>
+          </div>
+          <span class="status-live">
+            <span class="status-dot"></span>
+            Cupo Disponible
+          </span>
+        </div>
+
+        <!-- Muescas de ticket perforado -->
+        <div class="ticket-notch-divider" aria-hidden="true">
+          <span class="notch notch-left"></span>
+          <span class="perforation-line"></span>
+          <span class="notch notch-right"></span>
+        </div>
+
+        <div class="ticket-body">
+          <div class="ticket-value-row">
+            <div class="value-item">
+              <span class="val-label">Valor Regular</span>
+              <span class="val-old">S/ 35.00</span>
+            </div>
+            <div class="value-divider"></div>
+            <div class="value-item">
+              <span class="val-label">Tu Primera Visita</span>
+              <span class="val-free">S/ 0.00</span>
+            </div>
+          </div>
+
+          <div class="ticket-code-box">
+            <div class="qr-placeholder">
+              <Icon name="qrcode" size={42} class="qr-icon" />
+            </div>
+            <div class="code-info">
+              <span class="code-label">Código de Invitación</span>
+              <strong class="code-number">SPTN-2026-FREE</strong>
+              <small class="code-note">Presentar digitalmente en recepción</small>
+            </div>
+          </div>
+
+          <ul class="ticket-features">
+            <li>
+              <Icon name="shield-check" size={16} class="feat-icon" />
+              <span>Acceso total por 1 día (pesas + clases)</span>
+            </li>
+            <li>
+              <Icon name="clock" size={16} class="feat-icon" />
+              <span>Válido para mañana, tarde o noche</span>
+            </li>
+          </ul>
+
+          <button type="button" class="btn ticket-btn" data-open-modal>
+            <span>Reclamar este Pase Ahora</span>
+            <Icon name="arrow-right" size={16} />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    background: linear-gradient(135deg, #B52207 0%, #7E1200 100%);
+    color: #fff;
+    padding: clamp(72px, 8vw, 112px) var(--pad);
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid var(--ink);
+  }
+
+  .cta-backdrop-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.05) 0,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+    pointer-events: none;
+  }
+
+  .cta-watermark {
+    position: absolute;
+    right: 32%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
+  :global(.watermark-svg) {
+    color: #fff;
+  }
+
+  .cta-glow {
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 90, 54, 0.22) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: clamp(40px, 6vw, 72px);
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    border-radius: 99px;
+    width: fit-content;
+    backdrop-filter: blur(4px);
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(42px, 5.5vw, 76px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .cta-desc {
+    font-size: clamp(16px, 1.6vw, 19px);
+    line-height: 1.55;
+    opacity: 0.95;
+    max-width: 560px;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .btn-cta {
+    padding: 16px 32px;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+  }
+
+  .btn-whatsapp {
+    background: #0D0D0D;
+    color: #FFFFFF;
+    border: 1px solid rgba(37, 211, 102, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .btn-whatsapp:hover {
+    background: #141414;
+    border-color: #25D366;
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.3);
+    transform: translateY(-2px);
+  }
+
+  :global(.btn-whatsapp .wa-icon) {
+    color: #25D366;
+  }
+
+  .btn-line-white {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    color: #FFFFFF;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all var(--transition);
+  }
+
+  .btn-line-white:hover {
+    background: #FFFFFF;
+    color: var(--ink);
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Frosted Perk Chips */
+  .cta-perks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    margin-top: 14px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .perk-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 8px 16px;
+    border-radius: 99px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform var(--transition), background var(--transition);
+  }
+
+  .perk-chip:hover {
+    background: rgba(0, 0, 0, 0.45);
+    transform: translateY(-2px);
+  }
+
+  :global(.chip-icon) {
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* VIP Ticket Card */
+  .cta-ticket-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 10px 0;
+  }
+
+  .vip-ticket {
+    background: #111111;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(214, 47, 15, 0.4);
+    width: 100%;
+    max-width: 440px;
+    position: relative;
+    border-radius: 12px;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .vip-ticket:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 32px 75px rgba(0, 0, 0, 0.75), 0 0 30px rgba(214, 47, 15, 0.45);
+  }
+
+  .ticket-watermark {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    opacity: 0.05;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  :global(.ticket-watermark-svg) {
+    color: #fff;
+  }
+
+  .ticket-header {
+    background: #171717;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 11px 11px 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .ticket-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ticket-icon-box {
+    width: 40px;
+    height: 40px;
+    background: #222222;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  :global(.ticket-icon) {
+    color: var(--red);
+  }
+
+  .ticket-brand-name {
+    font-family: var(--display);
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    display: block;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .ticket-sub {
+    font-size: 11px;
+    color: #9A9A9A;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 600;
+  }
+
+  .status-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255, 184, 0, 0.12);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 12px;
+    border-radius: 99px;
+    border: 1px solid rgba(255, 184, 0, 0.35);
+    box-shadow: 0 2px 10px rgba(255, 184, 0, 0.12);
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px var(--gold);
+    animation: pulse-gold 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 184, 0, 0.7);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(0.9);
+      box-shadow: 0 0 0 6px rgba(255, 184, 0, 0);
+    }
+  }
+
+  /* Perforated Notch Divider Realista */
+  .ticket-notch-divider {
+    position: relative;
+    height: 20px;
+    background: #111111;
+    display: flex;
+    align-items: center;
+  }
+
+  .notch {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    /* El fondo del notch simula el fondo rojo de la seccion */
+    background: #9D1C05;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+  }
+
+  .notch-left {
+    left: -10px;
+    box-shadow: inset -3px 0 5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .notch-right {
+    right: -10px;
+    box-shadow: inset 3px 0 5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .perforation-line {
+    width: 100%;
+    margin: 0 20px;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.16);
+  }
+
+  .ticket-body {
+    padding: 22px 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    z-index: 2;
+    border-radius: 0 0 11px 11px;
+  }
+
+  .ticket-value-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #181818;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+  }
+
+  .value-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .val-label {
+    font-size: 11px;
+    color: #8C8C8C;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .val-old {
+    font-size: 17px;
+    text-decoration: line-through;
+    color: #6C6C6C;
+    font-weight: 700;
+  }
+
+  .val-free {
+    font-family: var(--display);
+    font-size: 32px;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .value-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .ticket-code-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #1A1A1A;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+  }
+
+  .qr-placeholder {
+    width: 52px;
+    height: 52px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  :global(.qr-icon) {
+    color: #121212;
+  }
+
+  .code-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .code-label {
+    font-size: 10.5px;
+    color: #8C8C8C;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .code-number {
+    font-family: monospace;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 0.08em;
+  }
+
+  .code-note {
+    font-size: 11px;
+    color: #6E6E6E;
+  }
+
+  .ticket-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ticket-features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #B5B5B5;
+  }
+
+  :global(.feat-icon) {
+    color: var(--red);
+    flex-shrink: 0;
+  }
+
+  .ticket-btn {
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 3px;
+    box-shadow: 0 6px 18px var(--red-glow);
+  }
+
+  .ticket-btn:hover {
+    background: var(--red-hover);
+    box-shadow: 0 10px 24px var(--red-glow);
+  }
+
+  @media (max-width: 960px) {
+    .cta-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .cta-ticket-wrapper {
+      justify-content: flex-start;
+    }
+
+    .vip-ticket {
+      max-width: 100%;
+    }
+  }
+</style>
