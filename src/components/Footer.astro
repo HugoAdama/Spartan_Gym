@@ -37,7 +37,7 @@ import { gymConfig } from "../data/gym";
         <p class="col-text ref-text">{gymConfig.address.reference}</p>
         <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="map-link">
           <span>Ver en Google Maps</span>
-          <Icon name="external-link" size={13} />
+          <Icon name="external-link" size={15} />
         </a>
       </div>
 
@@ -185,7 +185,7 @@ import { gymConfig } from "../data/gym";
 
   .logo-title {
     font-family: var(--display);
-    font-size: 30px;
+    font-size: 32px;
     color: #fff;
     letter-spacing: 0.04em;
     line-height: 1;
@@ -196,10 +196,10 @@ import { gymConfig } from "../data/gym";
   }
 
   .brand-tagline {
-    font-size: 14px;
-    color: #929292;
+    font-size: 16px;
+    color: #A0A0A0;
     line-height: 1.6;
-    max-width: 320px;
+    max-width: 340px;
   }
 
   .brand-cert-badge {
@@ -208,9 +208,9 @@ import { gymConfig } from "../data/gym";
     gap: 8px;
     background: #141414;
     border: 1px solid rgba(214, 47, 15, 0.4);
-    padding: 7px 14px;
-    border-radius: 3px;
-    font-size: 12px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 13.5px;
     font-weight: 600;
     color: #E2E2E2;
     width: fit-content;
@@ -240,7 +240,7 @@ import { gymConfig } from "../data/gym";
 
   .col-title {
     color: #fff;
-    font-size: 17px;
+    font-size: 20px;
     letter-spacing: 0.06em;
     font-family: var(--display);
     text-transform: uppercase;
@@ -248,7 +248,8 @@ import { gymConfig } from "../data/gym";
 
   .col-text {
     line-height: 1.55;
-    color: #9A9A9A;
+    font-size: 16px;
+    color: #A5A5A5;
   }
 
   .address-main {
@@ -257,8 +258,8 @@ import { gymConfig } from "../data/gym";
   }
 
   .ref-text {
-    font-size: 12.5px;
-    color: #6E6E6E;
+    font-size: 14px;
+    color: #7E7E7E;
   }
 
   /* Map outline chip button */
@@ -269,9 +270,9 @@ import { gymConfig } from "../data/gym";
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.16);
     color: #FFFFFF !important;
-    padding: 8px 15px;
+    padding: 9px 18px;
     border-radius: 4px;
-    font-size: 11.5px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -305,9 +306,9 @@ import { gymConfig } from "../data/gym";
     gap: 7px;
     background: rgba(255, 184, 0, 0.12);
     color: var(--gold);
-    font-size: 11.5px;
+    font-size: 13px;
     font-weight: 700;
-    padding: 6px 14px;
+    padding: 7px 16px;
     border-radius: 99px;
     width: fit-content;
     margin-bottom: 8px;
@@ -352,16 +353,17 @@ import { gymConfig } from "../data/gym";
   }
 
   .day-label {
-    font-size: 12px;
-    color: #7E7E7E;
+    font-size: 13px;
+    color: #8E8E8E;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+    font-weight: 600;
   }
 
   .time-label {
-    font-size: 14.5px;
+    font-size: 16.5px;
     color: #EAEAEA;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   /* Contacto y Redes */
@@ -417,21 +419,22 @@ import { gymConfig } from "../data/gym";
   }
 
   .contact-item-btn small {
-    font-size: 11px;
+    font-size: 12px;
     color: #8C8C8C;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    font-weight: 600;
   }
 
   .online-indicator {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #25D366;
   }
 
   .contact-item-btn strong {
-    font-size: 14px;
+    font-size: 16px;
     color: #fff;
   }
 
@@ -439,8 +442,8 @@ import { gymConfig } from "../data/gym";
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #8E8E8E;
-    font-size: 13.5px;
+    color: #9E9E9E;
+    font-size: 15px;
     padding: 4px 0;
     transition: color var(--transition);
   }
@@ -454,17 +457,18 @@ import { gymConfig } from "../data/gym";
   }
 
   .social-wrapper {
-    margin-top: 6px;
+    margin-top: 8px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   .social-label {
-    font-size: 11.5px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #6E6E6E;
+    color: #8E8E8E;
+    font-weight: 700;
   }
 
   .social-links {
@@ -476,8 +480,8 @@ import { gymConfig } from "../data/gym";
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     border-radius: 4px;
     background: #141414;
     color: #fff;
@@ -507,8 +511,8 @@ import { gymConfig } from "../data/gym";
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
-    font-size: 13px;
-    color: #6C6C6C;
+    font-size: 14.5px;
+    color: #888888;
   }
 
   .legal-links {

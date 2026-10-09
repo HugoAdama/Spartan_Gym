@@ -31,7 +31,7 @@ import { scheduleData } from "../data/schedule";
             <h3 class="class-title">{item.name}</h3>
             <div class="class-meta">
               <span class="meta-days">
-                <Icon name="calendar" size={14} class="calendar-icon" />
+                <Icon name="calendar" size={16} class="calendar-icon" />
                 {item.days}
               </span>
               <span class="meta-intensity">Intensidad: <strong>{item.intensity}</strong></span>
@@ -83,10 +83,10 @@ import { scheduleData } from "../data/schedule";
   .filter-btn {
     border: none;
     background: transparent;
-    padding: 8px 18px;
+    padding: 10px 22px;
     font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     cursor: pointer;
@@ -111,9 +111,9 @@ import { scheduleData } from "../data/schedule";
 
   .schedule-row {
     display: grid;
-    grid-template-columns: 120px 1.8fr 1.2fr auto;
+    grid-template-columns: 130px 1.8fr 1.2fr auto;
     gap: 24px;
-    padding: 22px 18px;
+    padding: 24px 20px;
     border-bottom: 1px solid #E2DED8;
     align-items: center;
     border-radius: 4px;
@@ -129,41 +129,41 @@ import { scheduleData } from "../data/schedule";
   .row-time {
     display: flex;
     align-items: baseline;
-    gap: 4px;
+    gap: 5px;
   }
 
   .row-time b {
-    font: 400 36px var(--display);
+    font: 400 42px var(--display);
     color: var(--red);
     line-height: 1;
   }
 
   .am-pm {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 800;
     color: var(--gray);
   }
 
   .class-title {
-    font-size: 22px;
+    font-size: 26px;
     letter-spacing: 0.01em;
     color: var(--ink);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .class-meta {
     display: flex;
-    gap: 16px;
-    font-size: 13.5px;
-    color: var(--gray);
+    gap: 18px;
+    font-size: 15.5px;
+    color: #555555;
     flex-wrap: wrap;
   }
 
   .meta-days {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-weight: 500;
+    gap: 7px;
+    font-weight: 600;
   }
 
   .meta-intensity strong {
@@ -173,19 +173,19 @@ import { scheduleData } from "../data/schedule";
   .row-coach {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
 
   .coach-avatar {
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: var(--red);
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 800;
   }
 
@@ -195,28 +195,31 @@ import { scheduleData } from "../data/schedule";
   }
 
   .coach-label {
-    font-size: 11px;
+    font-size: 12.5px;
     text-transform: uppercase;
     color: var(--gray);
     letter-spacing: 0.05em;
+    font-weight: 700;
   }
 
   .coach-name {
-    font-size: 13.5px;
+    font-size: 16px;
+    font-weight: 700;
     color: var(--ink);
   }
 
   .schedule-note {
-    margin-top: 28px;
-    padding: 16px 20px;
+    margin-top: 30px;
+    padding: 18px 24px;
     background: var(--paper);
-    border-left: 3px solid var(--red);
-    font-size: 15px;
+    border-left: 4px solid var(--red);
+    font-size: 17px;
+    line-height: 1.55;
     color: var(--ink);
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
   }
 
   :global(.note-icon) {

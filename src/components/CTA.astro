@@ -37,15 +37,15 @@ import { gymConfig } from "../data/gym";
 
       <div class="cta-perks">
         <div class="perk-chip">
-          <Icon name="check" size={15} class="chip-icon" />
+          <Icon name="check" size={17} class="chip-icon" />
           <span>Sin tarjeta ni compromiso</span>
         </div>
         <div class="perk-chip">
-          <Icon name="check" size={15} class="chip-icon" />
+          <Icon name="check" size={17} class="chip-icon" />
           <span>Lockers y vestuarios incluidos</span>
         </div>
         <div class="perk-chip">
-          <Icon name="check" size={15} class="chip-icon" />
+          <Icon name="check" size={17} class="chip-icon" />
           <span>Rutina guiada por coach</span>
         </div>
       </div>
@@ -108,18 +108,18 @@ import { gymConfig } from "../data/gym";
 
           <ul class="ticket-features">
             <li>
-              <Icon name="shield-check" size={16} class="feat-icon" />
+              <Icon name="shield-check" size={18} class="feat-icon" />
               <span>Acceso total por 1 día (pesas + clases)</span>
             </li>
             <li>
-              <Icon name="clock" size={16} class="feat-icon" />
+              <Icon name="clock" size={18} class="feat-icon" />
               <span>Válido para mañana, tarde o noche</span>
             </li>
           </ul>
 
           <button type="button" class="btn ticket-btn" data-open-modal>
             <span>Reclamar este Pase Ahora</span>
-            <Icon name="arrow-right" size={16} />
+            <Icon name="arrow-right" size={18} />
           </button>
         </div>
       </div>
@@ -196,8 +196,8 @@ import { gymConfig } from "../data/gym";
     gap: 8px;
     background: rgba(0, 0, 0, 0.35);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 6px 14px;
-    font-size: 12px;
+    padding: 7px 16px;
+    font-size: 14px;
     font-weight: 800;
     letter-spacing: 0.12em;
     border-radius: 99px;
@@ -206,14 +206,14 @@ import { gymConfig } from "../data/gym";
   }
 
   .badge-dot {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: #fff;
   }
 
   .cta-section h2 {
-    font-size: clamp(42px, 5.5vw, 76px);
+    font-size: clamp(48px, 6vw, 84px);
     line-height: 0.95;
     text-transform: uppercase;
     letter-spacing: 0.01em;
@@ -221,10 +221,10 @@ import { gymConfig } from "../data/gym";
   }
 
   .cta-desc {
-    font-size: clamp(16px, 1.6vw, 19px);
-    line-height: 1.55;
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.6;
     opacity: 0.95;
-    max-width: 560px;
+    max-width: 620px;
   }
 
   .cta-actions {
@@ -235,8 +235,8 @@ import { gymConfig } from "../data/gym";
   }
 
   .btn-cta {
-    padding: 16px 32px;
-    font-size: 15px;
+    padding: 18px 36px;
+    font-size: 17px;
     letter-spacing: 0.04em;
     font-weight: 700;
   }
@@ -289,13 +289,13 @@ import { gymConfig } from "../data/gym";
   .perk-chip {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
-    font-size: 13.5px;
+    gap: 10px;
+    font-size: 15.5px;
     font-weight: 600;
     color: #FFFFFF;
     background: rgba(0, 0, 0, 0.32);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 99px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -385,7 +385,7 @@ import { gymConfig } from "../data/gym";
 
   .ticket-brand-name {
     font-family: var(--display);
-    font-size: 22px;
+    font-size: 26px;
     letter-spacing: 0.06em;
     display: block;
     line-height: 1;
@@ -393,8 +393,8 @@ import { gymConfig } from "../data/gym";
   }
 
   .ticket-sub {
-    font-size: 11px;
-    color: #9A9A9A;
+    font-size: 13px;
+    color: #B0B0B0;
     text-transform: uppercase;
     letter-spacing: 0.07em;
     font-weight: 600;
@@ -406,11 +406,11 @@ import { gymConfig } from "../data/gym";
     gap: 7px;
     background: rgba(255, 184, 0, 0.12);
     color: var(--gold);
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    padding: 6px 12px;
+    padding: 7px 14px;
     border-radius: 99px;
     border: 1px solid rgba(255, 184, 0, 0.35);
     box-shadow: 0 2px 10px rgba(255, 184, 0, 0.12);
@@ -476,10 +476,10 @@ import { gymConfig } from "../data/gym";
   }
 
   .ticket-body {
-    padding: 22px 24px 26px;
+    padding: 24px 26px 28px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
     position: relative;
     z-index: 2;
     border-radius: 0 0 11px 11px;
@@ -490,7 +490,7 @@ import { gymConfig } from "../data/gym";
     align-items: center;
     justify-content: space-around;
     background: #181818;
-    padding: 14px;
+    padding: 16px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 4px;
   }
@@ -502,50 +502,51 @@ import { gymConfig } from "../data/gym";
   }
 
   .val-label {
-    font-size: 11px;
-    color: #8C8C8C;
+    font-size: 13px;
+    color: #A0A0A0;
     text-transform: uppercase;
     letter-spacing: 0.06em;
+    font-weight: 600;
   }
 
   .val-old {
-    font-size: 17px;
+    font-size: 20px;
     text-decoration: line-through;
-    color: #6C6C6C;
+    color: #7E7E7E;
     font-weight: 700;
   }
 
   .val-free {
     font-family: var(--display);
-    font-size: 32px;
+    font-size: 40px;
     color: var(--red);
     line-height: 1;
   }
 
   .value-divider {
     width: 1px;
-    height: 36px;
+    height: 40px;
     background: rgba(255, 255, 255, 0.12);
   }
 
   .ticket-code-box {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     background: #1A1A1A;
-    padding: 12px 16px;
+    padding: 14px 18px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 4px;
   }
 
   .qr-placeholder {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 3px;
+    border-radius: 4px;
     flex-shrink: 0;
   }
 
@@ -556,40 +557,43 @@ import { gymConfig } from "../data/gym";
   .code-info {
     display: flex;
     flex-direction: column;
+    gap: 2px;
   }
 
   .code-label {
-    font-size: 10.5px;
-    color: #8C8C8C;
+    font-size: 12.5px;
+    color: #9E9E9E;
     text-transform: uppercase;
     letter-spacing: 0.06em;
+    font-weight: 700;
   }
 
   .code-number {
     font-family: monospace;
-    font-size: 16px;
+    font-size: 19px;
     color: #fff;
     letter-spacing: 0.08em;
   }
 
   .code-note {
-    font-size: 11px;
-    color: #6E6E6E;
+    font-size: 12.5px;
+    color: #8A8A8A;
   }
 
   .ticket-features {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   .ticket-features li {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: #B5B5B5;
+    gap: 10px;
+    font-size: 15.5px;
+    color: #CCCCCC;
+    font-weight: 500;
   }
 
   :global(.feat-icon) {
@@ -601,9 +605,10 @@ import { gymConfig } from "../data/gym";
     width: 100%;
     background: var(--red);
     color: #fff;
-    padding: 14px;
-    font-size: 14px;
-    border-radius: 3px;
+    padding: 16px;
+    font-size: 16.5px;
+    font-weight: 700;
+    border-radius: 4px;
     box-shadow: 0 6px 18px var(--red-glow);
   }
 
